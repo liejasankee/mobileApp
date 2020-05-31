@@ -1,0 +1,99 @@
+<ion-header>
+
+  <ion-toolbar color="new">
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back" [disabled]="backbtn"></ion-back-button>
+      <ion-menu-button [disabled]="false">
+      </ion-menu-button>
+    </ion-buttons>
+    <app-header class="heading1"></app-header>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  <div id="container" *ngIf="folder =='ShopAll'">
+    <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)"
+      (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+    <div *ngIf="listt">
+      <ion-slides pager="true" [options]="slideOptsOne">
+        <ion-slide>
+          <img src="assets\img\pic1.jpeg">
+        </ion-slide>
+        <ion-slide>
+          <img src="assets\img\pic2.jpeg">
+        </ion-slide>
+        <ion-slide>
+          <img src="assets\img\pic3.jpeg">
+        </ion-slide>
+      </ion-slides>
+      <div class="box">
+        <ion-grid>
+          <ion-row>
+            <ion-col class="col">Categories</ion-col>
+            <ion-col class="fontcolor" (click)="openCategorypage()">view all</ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <ion-grid>
+
+
+        <div class="slidespec">
+          <ion-card class="slideCard" *ngFor="let c of categories" (click)="openCategory(c)">
+            <img src="{{c.image_url}}" />
+            <br>
+            <span style="margin-top: -24px;color: #000; text-align: center">
+              {{c.categories_name}}
+            </span>
+          </ion-card>
+        </div>
+
+        <ion-row>
+          <ion-card class="card2spec" style="width: 100%;height: 100%;">
+            <ion-col>
+              <lottie-animation-view [options]="call" [width]="80" [height]="80">
+              </lottie-animation-view>
+            </ion-col>
+            <ion-col>
+              <lottie-animation-view [options]="mail" [width]="80" [height]="80" (click)="presentModal()">
+              </lottie-animation-view>
+            </ion-col>
+            <ion-col>
+              <lottie-animation-view [options]="sms" [width]="80" [height]="80">
+              </lottie-animation-view>
+            </ion-col>
+          </ion-card>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div *ngIf="!listt">
+      <ion-grid>
+        <ion-list>
+          <ion-item *ngFor="let item of list; let i = index">
+            <ion-label [routerLink]="['/productdetail/', item.prod_id]">{{item.product_name}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-grid>
+    </div>
+    <!-- <app-product-list [link]="all"></app-product-list> -->
+  </div>
+  <div id="container" *ngIf="folder =='All_Spices_Masala_Curry'">
+    <app-product-list [link]="All_Spices_Masala_Curry"></app-product-list>
+  </div>
+  <div id="container" *ngIf="folder =='All_Instant_Mix_Unique'">
+    <app-product-list [link]="All_Instant_Mix_Unique"></app-product-list>
+  </div>
+  <div id="container" *ngIf="folder =='Superfoods'">
+    <app-product-list [link]="Superfoods"></app-product-list>
+  </div>
+  <div id="container" *ngIf="folder =='Millets'">
+    <app-product-list [link]="Millets"></app-product-list>
+  </div>
+  <div id="container" *ngIf="folder =='cold_compressedoil'">
+    <app-product-list [link]="Cold_Pressed_Oils"></app-product-list>
+  </div>
+  <div id="container" *ngIf="folder =='Beauty'">
+    <app-product-list [link]="Beauty_and_Health"></app-product-list>
+  </div>
+</ion-content>
+<app-footer></app-footer>

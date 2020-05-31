@@ -1,0 +1,60 @@
+
+.cart-length {
+  color: #383a3e;
+    position: absolute;
+    top: 4px;
+    left: 21px;
+    font-weight: 800;
+    font-size: 0.7em;
+    min-width: 25px;
+    z-index: 10;
+}
+  
+    
+   .flex
+  {
+display: flex;
+flex-direction: column;
+  } 
+  p {
+
+    font-weight: 100;
+    letter-spacing: 1.0px;
+    color: #f5f6f9c2;
+    fill-opacity: inherit;
+    margin: 7px;
+    font-size: smaller;
+    
+  }
+  img {
+width: 90px;
+height: 30px; 
+  }
+  #grid
+  {
+   align-items: center;
+  }
+    #social {
+      margin-top: 10px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      
+      ion-icon {
+        color: white;
+        font-size: 2.0em;
+        padding: 0 0.2em 0 0.2em;
+        font-weight: 10;
+        --ionicon-stroke-width: 15px;
+    
+}
+    }
+    
+    
+    
+  
+  
+  
+ 
+  

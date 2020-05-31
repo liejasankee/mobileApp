@@ -1,0 +1,49 @@
+.medium
+{
+    color: var(--ion-color-new);
+   
+   font-size: 20px;
+}
+
+
+.imgspec
+{
+    min-width: 128px;
+    max-width: 128px;
+
+}
+p
+{
+    font-size: 12px;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+.title
+{
+    display : inline;
+    font-size: 20px;
+    padding-right: 34%;
+    font-family: cursive;
+    font-weight: 800;
+}
+
+.row1
+{
+    flex:1;
+    flex-direction: row;
+    display: flex;;
+}
+.flexspec
+{
+    float: 1px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 40%;
+}

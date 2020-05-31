@@ -1,0 +1,63 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back"></ion-back-button>
+      <ion-menu-button [disabled]="false">
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>Categories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div style="height: 10%;">
+    <ion-grid class="grid1">
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="getviewtype('grid')" class="iconspec">
+            <ion-icon name="grid"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="getviewtype('list')" class="iconspec">
+            <ion-icon name="list"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+  <ion-grid class="grid3" *ngIf="viewtype">
+    <ion-row>
+      <ion-col>
+        <ion-row style="height: 10%;" *ngFor="let c of categories">
+          <ion-card class="cardspec">
+
+            <ion-card-content class="cardcontent">
+              <img src="{{c.image_url}}" style="width: 100%; height: 100%;" [routerLink]="['../../', c.route]"
+                (click)="forward()">
+            </ion-card-content>
+          </ion-card>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid class="grid2" *ngIf="!viewtype">
+
+    <ion-row>
+      <ion-col size-xs="6" size-sm="4" size-md="3" *ngFor=" let c of categories">
+        <ion-card style="min-width: 120px;">
+          <ion-card-title text-wrap class="title1spec" [routerLink]="['../../', c.route]" (click)="forward()">
+            {{c.categories_name}}</ion-card-title>
+          <img src={{c.image_url}} [routerLink]="['../../', c.route]" (click)="forward()">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
