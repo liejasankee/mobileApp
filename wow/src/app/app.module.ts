@@ -9,6 +9,11 @@ import { AuthGuardService } from './service/services/auth-guard.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LottieAnimationViewModule } from 'ng-lottie';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { SMS } from '@ionic-native/sms/ngx';
+
+import { CallLog } from '@ionic-native/call-log/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -20,7 +25,11 @@ import { LottieAnimationViewModule } from 'ng-lottie';
   providers: [
     StatusBar,
     AuthGuardService,
+    CallLog,
+    CallNumber,
     SplashScreen,
+    SMS,
+    AndroidPermissions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],

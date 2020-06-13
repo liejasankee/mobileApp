@@ -14,6 +14,8 @@ export class RestApiService {
     public loindetialspartner;
 
     loginpartner(loginget) {
+// alert("hi")
+// alert(JSON.stringify(loginget)+"hi serv")
         return this.http.post(this.URL + "/partner/login", loginget);
     }
     allproducts(link) {

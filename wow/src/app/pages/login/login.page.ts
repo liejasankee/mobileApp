@@ -23,17 +23,21 @@ export class LoginPage implements OnInit {
     this.menu.enable(false);
   }
   login(login: NgForm) {
-    console.log(login);
+    // alert("login"+login)
     if (login.form.valid) {
+      // alert("jhdfhjjd")
       this.customloaderpartner = true;
       console.log(login.form.value);
       let loginformget = {
         "email": login.form.value.email,
         "password": login.form.value.password
       }
-      console.log(loginformget);
+      // alert(loginformget+"loginformat");
+      // alert(JSON.stringify(loginformget)+"loginformat11111");
+
       this.ServiceService.loginpartner(loginformget).subscribe((data) => {
-        console.log(data);
+        // alert(data+"dataa1")
+        // alert(JSON.stringify(data)+"service");
         var fordataget;
         fordataget = data;
         this.customloaderpartner = false

@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { CartComponent } from '../cart/cart.component';
 import { ModalController } from '@ionic/angular';
 import { GlobalServiceService } from '../../service/global-service.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -15,19 +16,18 @@ export class HeaderComponent implements OnInit {
   products = [];
   cartItemCount: BehaviorSubject<number>;
 
-  constructor(private cartService: CartService, private modalCtrl: ModalController, private gs: GlobalServiceService) { }
+  constructor(private router:Router,private cartService: CartService, private modalCtrl: ModalController, private gs: GlobalServiceService) { }
 
   ngOnInit() {
     this.cart = this.cartService.getCart();
     this.products = this.cartService.getProducts();
     this.cartItemCount = this.cartService.getCartItemCount();
-
-
   }
   async openCart() {
 
     let modal = await this.modalCtrl.create({
       component: CartComponent,
+      
     });
     modal.present();
   }
